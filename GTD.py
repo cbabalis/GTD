@@ -48,3 +48,27 @@ class GTD:
             for line in contents:
                 f.write(line)
                 f.write('\n')
+
+    def collect_stats(self, processed_item_list, stats_log=''):
+        """ Method to collect statistics from items processed.
+        If a stats_log file has been given as input, then write the stats
+        to a file. Else, just display them.
+        :param list processed_item_list: list of processed items
+        :param str stats_log: file containing stats.
+        """
+        # find number of processed items
+        num_of_items = len(processed_item_list)
+
+        # if file exists, then write results to a file
+        if stats_log:
+            # find week number
+            today = datetime.today()
+            week = today.strftime("%U")
+            weeknum = "W"+str(week)
+            # create entry
+            entry = weeknum + "," + str(num_of_items)
+            with open(stats_log, 'a') as f:
+                f.write(entry)
+                f.write("\n")
+        else:
+            print "number of items processed: " + str(num_of_items)
