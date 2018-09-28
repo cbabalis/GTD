@@ -63,7 +63,7 @@ class GTD:
         if stats_log:
             # find week number
             today = datetime.today()
-            week = today.strftime("%U")
+            week = today.strftime("%U") # %U is code for week number
             weeknum = "W"+str(week)
             # create entry
             entry = weeknum + "," + str(num_of_items)
