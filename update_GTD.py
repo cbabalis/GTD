@@ -19,7 +19,7 @@ def read_file(in_path,out_path, keyword='DONE'):
     with open(in_path) as f:
         content = f.read().splitlines()
         for line in content:
-            # new_content contains the tasks pending and 0's in the 
+            # new_content contains the tasks pending and 0's in the
             # place of tasks that have been done
             new_content.append(process_line(line, out_path))
     # finally, clean the initial file of the logs
@@ -28,7 +28,7 @@ def read_file(in_path,out_path, keyword='DONE'):
 def process_line(aline, output_file, keyword='DONE'):
     """ This method processes a line and adds it to the appropriate
     file. If a 'DONE' keyword is in it, then it adds the line to the
-    output file and deletes it from the original file. 
+    output file and deletes it from the original file.
     Else, it leaves it to the original file.
     @param aline is the current line
     @param keyword is the keyword due to which the split is taking
